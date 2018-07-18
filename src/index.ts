@@ -34,10 +34,15 @@ const createAtlas = async () => {
 
   // TODO: figure out why casting is needed after Promise.all
   const tiffs = (await Promise.all(loaders)).map(x => (x as DataTiff))
+
   const atlas = new Atlas({ tiffs, textureSize: config.TEXTURE_SIZE })
   atlas.processTiffs()
 
-  writeFileSync(join(outputFolder, `${config.NAME}.atlas`), atlas.data)
+  writeFileSync(
+    join(outputFolder, `${config.NAME}.atlas`),
+    new Uint8Array(atlas.data.buffer)
+  )
+
   writeFileSync(
     join(outputFolder, `${config.NAME}.atlas.json`),
     JSON.stringify(atlas.metadata, null, 2)
