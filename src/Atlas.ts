@@ -81,7 +81,10 @@ class Atlas {
   }) => {
     raster.forEach((pixel, i) => {
       const x = (column * this.rasterWidth) + (i % this.rasterWidth)
-      const y = (row * this.rasterHeight) + Math.floor(i / this.rasterWidth)
+      const y = (row * this.rasterHeight) + (
+        this.rasterHeight - Math.floor(i / this.rasterWidth)
+      )
+
       const outputPixel = y * this.rasterWidth * this.rastersWide + x
       const outputIndex = outputPixel * OUTPUT_CHANNELS + channel
       this.data[outputIndex] = pixel
