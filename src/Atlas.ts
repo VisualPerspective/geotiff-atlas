@@ -53,8 +53,8 @@ class Atlas {
       tiff.rasters.forEach((raster) => {
         const channel = rasterIndex % OUTPUT_CHANNELS
         const imageIndex = Math.floor(rasterIndex / OUTPUT_CHANNELS)
-        const column = imageIndex % this.rastersPerRow
-        const row = Math.floor(imageIndex / this.rastersPerRow)
+        const column = imageIndex % this.rastersWide
+        const row = Math.floor(imageIndex / this.rastersWide)
 
         this.writeRaster({
           channel,
