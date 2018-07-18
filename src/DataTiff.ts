@@ -6,6 +6,7 @@ class DataTiff {
   rasters: ArrayBufferView[]
   width: any
   height: any
+  boundingBox: number[]
 
   async initialize (arrayBuffer: ArrayBuffer) {
     this.tiff = await fromArrayBuffer(arrayBuffer)
@@ -13,6 +14,7 @@ class DataTiff {
     this.width = this.image.getWidth()
     this.height = this.image.getHeight()
     this.rasters = await this.image.readRasters()
+    this.boundingBox = this.image.getBoundingBox()
   }
 
   static async fromArrayBuffer (arrayBuffer: ArrayBuffer) {

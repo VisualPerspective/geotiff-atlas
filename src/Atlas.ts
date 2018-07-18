@@ -12,6 +12,7 @@ class Atlas {
   rastersWide: number
   rastersPerRow: number
   rastersHigh: number
+  boundingBox: number[]
   data: any
 
   constructor ({
@@ -24,6 +25,7 @@ class Atlas {
     this.tiffs = tiffs
     this.rasterWidth = tiffs[0].width
     this.rasterHeight = tiffs[0].height
+    this.boundingBox = tiffs[0].boundingBox
     this.textureSize = textureSize
     this.rastersPerTiff = tiffs[0].rasters.length
     this.numRasters = tiffs[0].rasters.length * this.tiffs.length
@@ -101,6 +103,7 @@ class Atlas {
       rastersWide: this.rastersWide,
       rastersHigh: this.rastersHigh,
       channels: OUTPUT_CHANNELS,
+      boundingBox: this.boundingBox,
     }
   }
 }
