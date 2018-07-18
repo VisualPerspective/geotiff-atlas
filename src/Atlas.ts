@@ -41,11 +41,7 @@ class Atlas {
         OUTPUT_CHANNELS
       )
 
-      // tslint:disable-next-line
-      console.log('initialdatalength',
-        this.rastersWide, this.rastersWide * this.rasterWidth,
-        this.rastersHigh, this.rastersHigh * this.rasterHeight
-      )
+      this.data.fill(tiffs[0].noData)
     } else {
       throw new Error('Data format not supported - ' + reader)
     }
