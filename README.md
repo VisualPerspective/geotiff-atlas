@@ -3,7 +3,7 @@
 Pack many geotiffs covering the same area and projection into a single texture atlas.
 Command line tool, currently used to pre-process data for our [NDVI Viewer](https://github.com/VisualPerspective/ndvi-viewer)
 
-*__Note:__ this is alpha software and requires documentation and tests before being generally useful.*
+*__Note:__ this is alpha software and requires more documentation and tests before being generally useful.*
 
 ### Running the project
 To run the project, you'll need:
