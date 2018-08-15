@@ -14,6 +14,7 @@ class Atlas {
   rastersHigh: number
   boundingBox: number[]
   data: any
+  dataType: any
 
   constructor ({
     tiffs,
@@ -34,17 +35,22 @@ class Atlas {
     this.rastersHigh = Math.ceil(this.numRasters / this.rastersPerRow)
 
     const reader = tiffs[0].image.getReaderForSample(0)
-    if (reader === DataView.prototype.getFloat32) {
-      this.data = new Float32Array(
-        this.rasterWidth * this.rastersWide *
-        this.rasterHeight * this.rastersHigh *
-        OUTPUT_CHANNELS
-      )
+    const numSamples = (
+      this.rasterWidth * this.rastersWide *
+      this.rasterHeight * this.rastersHigh *
+      OUTPUT_CHANNELS
+    )
 
-      this.data.fill(tiffs[0].noData)
+    if (reader === DataView.prototype.getFloat32) {
+      this.dataType = Float32Array
+    } else if (reader === DataView.prototype.getUint8) {
+      this.dataType = Uint8Array
     } else {
       throw new Error('Data format not supported - ' + reader)
     }
+
+    this.data = new this.dataType(numSamples)
+    this.data.fill(tiffs[0].noData)
   }
 
   processTiffs = () => {
