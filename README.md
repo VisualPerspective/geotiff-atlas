@@ -14,5 +14,5 @@ Example usage:
 * Clone this repo, and run `yarn` to install dependencies
 * Run `yarn build` to build the project
 * Download the iceland geotiffs and configuration:
-  * `curl https://storage.googleapis.com/iceland-ndvi/static/iceland-ndvi-tiffs.zip`
+  * `curl https://storage.googleapis.com/iceland-ndvi/static/iceland-ndvi-tiffs.zip> iceland-ndvi-tiffs.zip`
   * Unzip the file and you'll see a JSON configuration file and folder full of geotiffs
