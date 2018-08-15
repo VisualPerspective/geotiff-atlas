@@ -23,4 +23,4 @@ Example usage:
   * `ndvi.atlas`, a binary file containing the geotiff data, usable as a WebGL texture
   * `ndvi.atlas.json`, a configuration file describing how the geotiffs are packed into the texture atlas
   
-See ([NDVI Viewer](https://github.com/VisualPerspective/ndvi-viewer)) for examples of loading and accessing tiffs stored within the atlas. 
+See our [NDVI Viewer](https://github.com/VisualPerspective/ndvi-viewer) repository for examples of loading and accessing tiffs stored within the atlas. 
